@@ -1,0 +1,35 @@
+version: '3'
+networks:
+    app-tier:
+        driver: bridge
+        ipam:
+          config:
+          - subnet: 172.16.238.0/24
+          driver: default    
+services:
+    mysql:
+        networks:
+          app-tier:
+            ipv4_address: 172.16.238.3          
+        container_name: docker-mysql_se
+        restart: always
+        image: 'mysql'
+        environment:
+          MYSQL_DATABASE: 'nodebird_se'
+          MYSQL_ROOT_PASSWORD: '!@#bgkim!23'
+          DATABASE_HOST: 'mysql'
+        ports:
+          - '3306:3306'
+    app:
+        networks:
+          app-tier:
+            ipv4_address: 172.16.238.2
+        container_name: docker-nodebird_se
+        restart: always
+        build: .
+        ports:
+          - '80:80'
+        links:
+          - mysql
+        depends_on:
+          - mysql

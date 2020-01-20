@@ -5,7 +5,7 @@ module.exports = {
         username: "root",
         password: process.env.SEQUELIZE_PASSWORD,
         database: "nodebird_se",
-        host: "127.0.0.1",
+        host: "mysql",
         dialect: "mysql",
         operatorsAliases: false
     },
@@ -13,7 +13,7 @@ module.exports = {
         username: "root",
         password: process.env.SEQUELIZE_PASSWORD,
         database: "nodebird_se",
-        host: "127.0.0.1",
+        host: "mysql",
         dialect: "mysql",
         operatorsAliases: false,
         logging: false

@@ -1,0 +1,7 @@
+FROM mysql
+
+ENV MYSQL_DATABASE nodebird_se
+ENV MYSQL_ROOT_PASSWORD !@#bgkim!23
+# ENV MYSQL_USER mysql
+# ENV MYSQL_PASSWORD supersecret
+# ENV DATABASE_HOST db
